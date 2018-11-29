@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="todoJS.css">
+    <title>Todo.vue</title>
+</head>
+<body>
+<div class="container" id="app">
+    <h1>TodoList</h1>
+
+    <div class="todo">
+        <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg"><i class="fas fa-angle-down"></i></span>
+            </div>
+            <input type="text" class="form-control" id="todo-input" placeholder="Ajouter une tâche" v-model="todo" @keypress.enter="addTodo">
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item"
+                v-for="todo in todos"
+                @dblclick="deleteTodo(todo)"
+                @click="doneTodo">
+                {{ todo.name }}</li>
+        </ul>
+        <div class="todo-footer">
+            <p>Double Click to Delete</p>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="todo.js"></script>
+</body>
+</html>
